@@ -1,3 +1,6 @@
-/* Font */
+/* Common CSS */
 
-font-family: 'Roboto', sans-serif;
+/* Font */
+body {
+    font-family : 'Roboto', sans-serif;
+}
