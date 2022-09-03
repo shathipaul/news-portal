@@ -99,7 +99,7 @@ loadCategory()
         //     post.sort((a, b) => b.total_view - a.total_view);
         //   };
     }
-
+    
     const loadCardDetails = async (code) =>{
         const url = `https://openapi.programming-hero.com/api/news/${code}`
         try{
@@ -153,7 +153,17 @@ loadCategory()
        displayModalcontainer.appendChild(modalDiv);
     
     }
-    // loadCard()
+
+    const toggleSpinner = isLoading =>{
+        const loaderSeletor = document.getElementById('spinner');
+        if(isLoading){
+            loaderSeletor.classList.remove('d-none');
+        }
+        else{
+            loaderSeletor,classList.add('d-none')
+        }
+    }
+        
     
    
     
