@@ -10,12 +10,9 @@ catch (error){
 }
 }
 
-
 const displayCategory = categories =>{
-    // console.log(categories)
     const categoryContainer = document.getElementById('category-div');
         categories.forEach(category => {
-        // console.log(category)
         const categoryDiv = document.createElement('li');
         categoryDiv.innerHTML = `
         <a onclick="loadCard('${category.category_id}')">${category.category_name}</a>
@@ -41,14 +38,16 @@ loadCategory()
     const displayCard = cards =>{
         // console.log(cards)
         const numberOfPost = document.getElementById('number-of-post');
-        numberOfPost.innerText = cards.length
-        // if(numberOfPost === 0){
-        //     console.log('No news found')
-        // }
-        // else{
-        //     numberOfPost.innerText = cards.length
-        // }
-        
+        numberOfPost.innerText = cards.length;
+
+        const noNews = document.getElementById('no-news')
+        if(cards.length === 0){
+            noNews.classList.remove('d-none')
+        }
+        else{
+            noNews.classList.add('d-none')
+        }
+
         const cardContainar = document.getElementById('card-info');
         cardContainar.innerHTML = '';
 
@@ -155,6 +154,6 @@ loadCategory()
     
     }
     // loadCard()
-    // loadCategoryPost()
+    
    
     
