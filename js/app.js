@@ -18,18 +18,16 @@ const displayCategory = categories =>{
         // console.log(category)
         const categoryDiv = document.createElement('li');
         categoryDiv.innerHTML = `
-        <a onclick="">${category.category_name}</a>
+        <a onclick="loadCard('${category.category_id}')">${category.category_name}</a>
         `;
         categoryContainer.appendChild(categoryDiv)
     });
 }
-
 loadCategory()
 
 
-// Card JS
-    const loadCard = async () =>{
-        const url = `https://openapi.programming-hero.com/api/news/category/01`
+    const loadCard = async (id) =>{
+        const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
         try{
             const res = await fetch(url);
             const data = await res.json();
@@ -38,12 +36,24 @@ loadCategory()
         catch (error){
             console.log(error);
         }
-        }
+    }
+    
     const displayCard = cards =>{
         // console.log(cards)
+        const numberOfPost = document.getElementById('number-of-post');
+        numberOfPost.innerText = cards.length
+        // if(numberOfPost === 0){
+        //     console.log('No news found')
+        // }
+        // else{
+        //     numberOfPost.innerText = cards.length
+        // }
+        
         const cardContainar = document.getElementById('card-info');
+        cardContainar.innerHTML = '';
+
         cards.forEach(card => {
-            // console.log(card)
+            console.log(card)
             const cardDiv = document.createElement('div')
             cardDiv.innerHTML =`
             <div class="card mb-3">
@@ -86,6 +96,9 @@ loadCategory()
             `;
             cardContainar.appendChild(cardDiv)
         });
+        // const sortByViews = (post) => {
+        //     post.sort((a, b) => b.total_view - a.total_view);
+        //   };
     }
 
     const loadCardDetails = async (code) =>{
@@ -101,7 +114,7 @@ loadCategory()
     }
 
     const displayCardDetail = details =>{
-        console.log(details[0])
+        // console.log(details[0])
         const displayModalcontainer = document.getElementById('card-modal');
         const modalDiv = document.createElement('div')
         modalDiv.classList.add('modal-content')
@@ -141,6 +154,7 @@ loadCategory()
        displayModalcontainer.appendChild(modalDiv);
     
     }
-    loadCard()
+    // loadCard()
+    // loadCategoryPost()
    
     
