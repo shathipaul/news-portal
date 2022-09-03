@@ -17,6 +17,9 @@
      
 </head>
 <body>
+  <section class="container p-5">
+    <h2 class="text-center text-info">Here are some Frequently Asked Question you may have.</h2>
+  </section>
     <section class="container">
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
@@ -45,21 +48,22 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  Accordion Item #3
+                  What is different between Map, Foreach, Filter and Find?
                 </button>
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                
+                <div class="accordion-body"><b>Map:</b> It executes the same code on every element in an array and returns a new array with the updated elements. <br> <b>Foreach:</b> is used to execute the same code on every element in an array but does not change the array and it returns undefined. <br> <b>Filter:</b> checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria. <b>Find:</b> Function .find() is also a search function like the previous but they differ in one small detail — this function returns only one match in an array. If in an array is more than one result, the function will return the first that has matched.</div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                  Accordion Item #4
+                  Why should we use template string?
                 </button>
               </h2>
               <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                <div class="accordion-body">We use template strings to write your string exactly how you want it to appear, without all the quotation marks and confusion. Template strings make it very easy to spot a missing space and make your string more readable.</div>
               </div>
             </div>
           </div>
