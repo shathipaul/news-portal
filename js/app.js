@@ -14,6 +14,7 @@ const displayCategory = categories =>{
     const categoryContainer = document.getElementById('category-div');
         categories.forEach(category => {
         const categoryDiv = document.createElement('li');
+        categoryDiv.classList.add('list-group-item');
         categoryDiv.innerHTML = `
         <a onclick="loadCard('${category.category_id}')">${category.category_name}</a>
         `;
@@ -95,9 +96,7 @@ loadCategory()
             `;
             cardContainar.appendChild(cardDiv)
         });
-        // const sortByViews = (post) => {
-        //     post.sort((a, b) => b.total_view - a.total_view);
-        //   };
+
     }
     
     const loadCardDetails = async (code) =>{
@@ -115,6 +114,7 @@ loadCategory()
     const displayCardDetail = details =>{
         // console.log(details[0])
         const displayModalcontainer = document.getElementById('card-modal');
+        displayModalcontainer.innerHTML = '';
         const modalDiv = document.createElement('div')
         modalDiv.classList.add('modal-content')
         modalDiv.innerHTML =`
