@@ -24,7 +24,9 @@ const displayCategory = categories =>{
 loadCategory()
 
 
+
     const loadCard = async (id) =>{
+        toggleSpinner(true)
         const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
         try{
             const res = await fetch(url);
@@ -38,6 +40,7 @@ loadCategory()
     
     const displayCard = cards =>{
         // console.log(cards)
+        
         const numberOfPost = document.getElementById('number-of-post');
         numberOfPost.innerText = cards.length;
 
@@ -51,7 +54,7 @@ loadCategory()
 
         const cardContainar = document.getElementById('card-info');
         cardContainar.innerHTML = '';
-
+        toggleSpinner(false)
         cards.forEach(card => {
             console.log(card)
             const cardDiv = document.createElement('div')
@@ -64,7 +67,7 @@ loadCategory()
                       <div class="col-md-9">
                         <div class="card-body p-3">
                           <h5 class="card-title p-3">${card.title}</h5>
-                          <p class="card-text">${card.details.slice(0, 500)}</p>
+                          <p class="card-text">${card.details.slice(0, 400)}</p>
                           <!-- Card Footer start -->
                           <div class="d-flex justify-content-around pt-4">
                             <div class="d-flex align-items-center">
@@ -80,7 +83,7 @@ loadCategory()
                                     <i class="fa-solid fa-eye p-2"></i>
                                 </div>
                                 <div>
-                                <h6 class=" pt-2">${card.total_view}</h6>
+                                <h6 class=" pt-2">${card.total_view ? card.total_view: 'Not Found'}</h6>
                                 </div>
                             </div>
                             <div class="text-end pt-3">
@@ -96,7 +99,7 @@ loadCategory()
             `;
             cardContainar.appendChild(cardDiv)
         });
-
+       
     }
     
     const loadCardDetails = async (code) =>{
@@ -151,7 +154,7 @@ loadCategory()
         `;
 
        displayModalcontainer.appendChild(modalDiv);
-    
+       
     }
 
     const toggleSpinner = isLoading =>{
@@ -160,7 +163,7 @@ loadCategory()
             loaderSeletor.classList.remove('d-none');
         }
         else{
-            loaderSeletor,classList.add('d-none')
+            loaderSeletor.classList.add('d-none')
         }
     }
         
